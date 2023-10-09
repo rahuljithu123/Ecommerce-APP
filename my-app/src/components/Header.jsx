@@ -23,6 +23,20 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <input
+                style={{ width: 400 }}
+                class="form-control"
+                type="text"
+                value="Search "
+                aria-label="readonly input example"
+                readonly
+                onChange={(e) => {
+                productDispatch({
+                  type: "FILTER_BY_SEARCH",
+                  payload: e.target.value,
+                }); }}
+              ></input>
+
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/">
                   Home
@@ -49,7 +63,7 @@ const Header = () => {
             </NavLink>
             <Login />
             <SignUp />
-            <CartBtn/>
+            <CartBtn />
           </div>
         </div>
       </nav>
